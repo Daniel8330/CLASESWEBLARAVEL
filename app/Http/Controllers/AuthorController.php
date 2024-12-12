@@ -52,7 +52,8 @@ class AuthorController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $author= author::find($id);
+        return view('authors.edit', compact('author'));
     }
 
     /**
@@ -68,6 +69,13 @@ class AuthorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $author = new Author();
+        $author = Author::find($id);
+
+        if ($author) {
+            $author->delete();
+            return redirect()->route('authors.index');
+        }
+
     }
 }

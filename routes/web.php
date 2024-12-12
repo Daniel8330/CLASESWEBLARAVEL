@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthorController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,3 +18,5 @@ use App\Http\Controllers\AuthorController;
 
 Route::get('/authors',[AuthorController::class,'index'])->name('authors.index');
 Route::post('/authors',[AuthorController::class,'store'])->name('authors.store');
+Route::delete('/authors/{id}', [AuthorController::class,'destroy'])->name('authors.destroy');
+Route::get('/authors/{id}', [authorController::class,'edit'])->name('authors.edit');
