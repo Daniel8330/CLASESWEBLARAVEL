@@ -68,7 +68,6 @@
                             @csrf
                             @method('edit')
                             <button type="submit">Editar</button>
-
                         </form>
                     </td>
                     

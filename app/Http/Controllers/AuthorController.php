@@ -52,16 +52,22 @@ class AuthorController extends Controller
      */
     public function edit(string $id)
     {
-        $author= author::find($id);
+        $author  = Author::find($id);
         return view('authors.edit', compact('author'));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $author = Author::find($id);
+        $author->name = $request->name;
+        $author->nationality = $request->nationality;
+        $author->birth_date = $request->birth_date;
+        $author->save();
+        return redirect()->route('authors.index');
     }
 
     /**
